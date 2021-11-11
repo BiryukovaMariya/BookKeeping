@@ -5,10 +5,10 @@ public class Employee {
     private static int id = 0;
     private int employeeId;
     private String name;
-    private String department;
+    private int department;
     private int salary;
 
-    public Employee(String name, String department, int salary) {
+    public Employee(String name, int department, int salary) {
         id++;
         this.employeeId = id;
         this.name = name;
@@ -24,7 +24,7 @@ public class Employee {
         return name;
     }
 
-    public String getDepartment() {
+    public int getDepartment() {
         return department;
     }
 
@@ -32,11 +32,14 @@ public class Employee {
         return salary;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(int department) {
         this.department = department;
     }
 
     public void setSalary(int salary) {
+        if (salary <= 0) {
+            throw new RuntimeException("Нельзя работать бесплатно!");
+        }
         this.salary = salary;
     }
 
